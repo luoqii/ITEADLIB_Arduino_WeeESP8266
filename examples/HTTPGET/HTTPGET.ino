@@ -21,8 +21,11 @@
 
 #include "ESP8266.h"
 
-#define SSID        "ITEAD"
-#define PASSWORD    "12345678"
+#define SSID        "Tenda_098C40"
+#define PASSWORD    "bangyuan"
+#define SPEED 115200
+
+SoftwareSerial Serial1(8,9);
 #define HOST_NAME   "www.baidu.com"
 #define HOST_PORT   (80)
 
@@ -30,7 +33,7 @@ ESP8266 wifi(Serial1);
 
 void setup(void)
 {
-    Serial.begin(9600);
+    Serial.begin(SPEED);
     Serial.print("setup begin\r\n");
 
     Serial.print("FW Version:");
@@ -88,7 +91,7 @@ void loop(void)
         Serial.print("release tcp err\r\n");
     }
     
-    while(1);
+    //while(1);
     
 }
      

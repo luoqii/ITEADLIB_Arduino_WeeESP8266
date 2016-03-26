@@ -19,17 +19,20 @@
  * THE SOFTWARE.
  */
 #include "ESP8266.h"
+#include <SoftwareSerial.h>
 
-#define SSID        "ITEAD"
-#define PASSWORD    "12345678"
+#define SSID        "Tenda_098C40"
+#define PASSWORD    "bangyuan"
+#define SPEED 115200
 
+SoftwareSerial Serial1(8,9);
 ESP8266 wifi(Serial1);
 
 void setup(void)
 {
-    Serial.begin(9600);
+    Serial.begin(SPEED);
     Serial.print("setup begin\r\n");
-
+    wifi.restart();
     Serial.print("FW Version: ");
     Serial.println(wifi.getVersion().c_str());
     

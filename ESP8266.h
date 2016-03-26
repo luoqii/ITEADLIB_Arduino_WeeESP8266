@@ -21,16 +21,17 @@
 #ifndef __ESP8266_H__
 #define __ESP8266_H__
 
-#include "Arduino.h"
 
 
-//#define ESP8266_USE_SOFTWARE_SERIAL
+
+#define ESP8266_USE_SOFTWARE_SERIAL
 
 
 #ifdef ESP8266_USE_SOFTWARE_SERIAL
 #include "SoftwareSerial.h"
 #endif
 
+#include "Arduino.h"
 
 /**
  * Provide an easy-to-use way to manipulate ESP8266. 
@@ -60,6 +61,7 @@ class ESP8266 {
     ESP8266(HardwareSerial &uart, uint32_t baud = 9600);
 #endif
     
+//    void setDebugSerial(Serial &debug);
     
     /** 
      * Verify ESP8266 whether live or not. 
@@ -462,6 +464,7 @@ class ESP8266 {
 #else
     HardwareSerial *m_puart; /* The UART to communicate with ESP8266 */
 #endif
+//    Serial *debugSerial;
 };
 
 #endif /* #ifndef __ESP8266_H__ */
